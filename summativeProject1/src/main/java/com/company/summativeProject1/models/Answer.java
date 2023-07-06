@@ -7,8 +7,6 @@ public class Answer {
 
     private String answer;
 
-    //public Answer(){};
-
     public Answer(String question, String answer, int id){
         this.question = question;
         this.answer = answer;

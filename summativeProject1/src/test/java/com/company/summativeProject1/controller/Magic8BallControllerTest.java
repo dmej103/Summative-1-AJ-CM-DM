@@ -1,7 +1,5 @@
 package com.company.summativeProject1.controller;
 
-
-import ch.qos.logback.core.status.Status;
 import com.company.summativeProject1.controllers.Magic8BallController;
 import com.company.summativeProject1.models.Answer;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -11,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.util.List;
 
@@ -35,6 +32,7 @@ public class Magic8BallControllerTest {
 
     @Test
     public void shouldReturnMagic8BallAnswerOnPostRequest() throws Exception {
+        // Should return the question inside inputQuestion
         Answer inputQuestion = new Answer("Netflix", "Test--1",1);
 
         String inputJson = mapper.writeValueAsString(inputQuestion);
@@ -44,7 +42,7 @@ public class Magic8BallControllerTest {
         String outputJson = mapper.writeValueAsString(outputAnswer);
 
         mockMvc.perform(
-                        post("/magic8ball/answers")
+                        post("/magic")
                                 .content(inputJson)
                                 .contentType(MediaType.APPLICATION_JSON)
                 )
