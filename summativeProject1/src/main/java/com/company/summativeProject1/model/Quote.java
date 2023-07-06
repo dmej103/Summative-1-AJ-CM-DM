@@ -4,12 +4,11 @@ public class Quote {
     int id;
     String author;
     String quote;
-    static int TrackID = 0;
 
-    public Quote(String author, String quote){
-        setId(TrackID++);
+    public Quote(String author, String quote, int id){
         this.author=author;
         this.quote = quote;
+        this.id = id;
     }
 
     public int getId() {

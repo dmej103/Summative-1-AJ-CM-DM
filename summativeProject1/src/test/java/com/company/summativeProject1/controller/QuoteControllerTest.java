@@ -17,7 +17,7 @@ class QuoteControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    public void ShouldGetRandomQuote() throws Exception {
+    public void ShouldReturnRandomQuote() throws Exception {
         mockMvc.perform(
                         get("/quote")
                                 .contentType(MediaType.APPLICATION_JSON)
