@@ -1,4 +1,4 @@
-package com.company.summativeProject1.model;
+package com.company.summativeProject1.models;
 
 public class Quote {
     int id;
