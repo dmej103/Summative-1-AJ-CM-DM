@@ -31,13 +31,33 @@ public class Magic8BallControllerTest {
     }
 
     @Test
-    public void shouldReturnMagic8BallAnswerOnPostRequest() throws Exception {
+    public void shouldReturnMagic8BallAnswerOnPostRequestWithNonEmptyInput() throws Exception {
         // Should return the question inside inputQuestion
-        Answer inputQuestion = new Answer("Netflix", "Test--1",1);
+        Answer inputQuestion = new Answer("Netflix", "should not return this",1);
 
         String inputJson = mapper.writeValueAsString(inputQuestion);
 
-        Answer outputAnswer = new Answer("", "Test--2", 2);
+        Answer outputAnswer = new Answer("", "should return random answer from answer list", 2);
+
+        String outputJson = mapper.writeValueAsString(outputAnswer);
+
+        mockMvc.perform(
+                        post("/magic")
+                                .content(inputJson)
+                                .contentType(MediaType.APPLICATION_JSON)
+                )
+                .andDo(print())
+                .andExpect(status().isCreated());   //Created status should be 201.
+    }
+
+    @Test
+    public void shouldReturnMagic8BallAnswerOnPostRequestWithEmptyInput() throws Exception {
+        // Should return the question inside inputQuestion
+        Answer inputQuestion = new Answer("", "should not return this",1);
+
+        String inputJson = mapper.writeValueAsString(inputQuestion);
+
+        Answer outputAnswer = new Answer("", "should return random answer from answer list", 2);
 
         String outputJson = mapper.writeValueAsString(outputAnswer);
 

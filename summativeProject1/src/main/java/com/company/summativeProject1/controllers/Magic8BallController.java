@@ -46,11 +46,11 @@ public class Magic8BallController {
     @RequestMapping(value = "/magic", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.CREATED)
     public Answer returnMagic8BallAnswer(@RequestBody Answer question){
-        int index = (int)(Math.random()*answerList.size());
+        int randomIndex = (int)(Math.random()*answerList.size());
 
         //Spring is doing Deserialization. Its mapping whatever is sent in to the object I declared on line 51.
         //It's associating the request body (input) with the answer object. Looks for a match with this new object.
-        question.setAnswer(answerList.get(index));
+        question.setAnswer(answerList.get(randomIndex));
         question.setId(idCounter++);
 
         return question;

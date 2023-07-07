@@ -1,9 +1,9 @@
 package com.company.summativeProject1.models;
 
 public class Quote {
-    int id;
-    String author;
-    String quote;
+    private int id;
+    private String author;
+    private String quote;
 
     public Quote(String author, String quote, int id){
         this.author=author;
