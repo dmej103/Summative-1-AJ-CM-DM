@@ -1,18 +1,14 @@
 package com.company.summativeProject1.controllers;
-
 import com.company.summativeProject1.models.Answer;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import java.lang.Math;
 
 @RestController
 public class Magic8BallController {
     private List<String> answerList;
-
     private int idCounter = 1;
 
     public Magic8BallController(){

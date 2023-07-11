@@ -18,29 +18,20 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(Magic8BallController.class)
 public class Magic8BallControllerTest {
-
     @Autowired
     public MockMvc mockMvc;
-
     private ObjectMapper mapper = new ObjectMapper();
-
     private List<Answer> answerList;
-
     @BeforeEach
     public void setUp(){
     }
-
     @Test
     public void shouldReturnMagic8BallAnswerOnPostRequestWithNonEmptyInput() throws Exception {
         // Should return the question inside inputQuestion
         Answer inputQuestion = new Answer("Netflix", "should not return this",1);
-
         String inputJson = mapper.writeValueAsString(inputQuestion);
-
         Answer outputAnswer = new Answer("", "should return random answer from answer list", 2);
-
         String outputJson = mapper.writeValueAsString(outputAnswer);
-
         mockMvc.perform(
                         post("/magic")
                                 .content(inputJson)
@@ -54,13 +45,9 @@ public class Magic8BallControllerTest {
     public void shouldReturnMagic8BallAnswerOnPostRequestWithEmptyInput() throws Exception {
         // Should return the question inside inputQuestion
         Answer inputQuestion = new Answer("", "should not return this",1);
-
         String inputJson = mapper.writeValueAsString(inputQuestion);
-
         Answer outputAnswer = new Answer("", "should return random answer from answer list", 2);
-
         String outputJson = mapper.writeValueAsString(outputAnswer);
-
         mockMvc.perform(
                         post("/magic")
                                 .content(inputJson)

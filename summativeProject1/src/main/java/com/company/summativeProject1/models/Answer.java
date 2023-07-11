@@ -1,10 +1,7 @@
 package com.company.summativeProject1.models;
-
 public class Answer {
     private double id;
-
     private String question;
-
     private String answer;
 
     public Answer(String question, String answer, int id){
