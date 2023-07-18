@@ -1,6 +1,6 @@
 package com.company.summativeProject1.models;
 public class Answer {
-    private double id;
+    private int id;
     private String question;
     private String answer;
 
@@ -14,7 +14,7 @@ public class Answer {
         return id;
     }
 
-    public void setId(double id) {
+    public void setId(int id) {
         this.id = id;
     }
 
