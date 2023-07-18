@@ -10,7 +10,7 @@ public class Answer {
         this.id = id;
     }
 
-    public double getId() {
+    public int getId() {
         return id;
     }
 
