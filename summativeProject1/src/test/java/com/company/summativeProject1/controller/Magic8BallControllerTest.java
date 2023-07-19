@@ -12,7 +12,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -22,13 +22,15 @@ public class Magic8BallControllerTest {
     public MockMvc mockMvc;
     private ObjectMapper mapper = new ObjectMapper();
     private List<Answer> answerList;
+
     @BeforeEach
-    public void setUp(){
+    public void setUp() {
     }
+
     @Test
     public void shouldReturnMagic8BallAnswerOnPostRequestWithNonEmptyInput() throws Exception {
         // Should return the question inside inputQuestion
-        Answer inputQuestion = new Answer("Netflix", "should not return this",1);
+        Answer inputQuestion = new Answer("Netflix", "should not return this", 1);
         String inputJson = mapper.writeValueAsString(inputQuestion);
         Answer outputAnswer = new Answer("", "should return random answer from answer list", 2);
         String outputJson = mapper.writeValueAsString(outputAnswer);
@@ -44,7 +46,7 @@ public class Magic8BallControllerTest {
     @Test
     public void shouldReturnMagic8BallAnswerOnPostRequestWithEmptyInput() throws Exception {
         // Should return the question inside inputQuestion
-        Answer inputQuestion = new Answer("", "should not return this",1);
+        Answer inputQuestion = new Answer("", "should not return this", 1);
         String inputJson = mapper.writeValueAsString(inputQuestion);
         Answer outputAnswer = new Answer("", "should return random answer from answer list", 2);
         String outputJson = mapper.writeValueAsString(outputAnswer);

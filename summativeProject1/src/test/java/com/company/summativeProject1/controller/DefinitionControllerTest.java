@@ -19,8 +19,8 @@ public class DefinitionControllerTest {
     @Test
     public void shouldReturnRandomWordDefinitionAndReturn200StatusCode() throws Exception {
         mockMvc.perform(
-                    get("/word")
-                    .contentType(MediaType.APPLICATION_JSON))
+                        get("/word")
+                                .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk());
     }

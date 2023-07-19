@@ -1,17 +1,18 @@
 package com.company.summativeProject1.controllers;
+
 import com.company.summativeProject1.models.Answer;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.lang.Math;
 
 @RestController
 public class Magic8BallController {
     private List<String> answerList;
     private int idCounter = 1;
 
-    public Magic8BallController(){
+    public Magic8BallController() {
         answerList = new ArrayList<>();
         // List will contain all 20 possible Magic 8 Ball Answers from the original toy.
         answerList.add("It is certain.");
@@ -41,8 +42,8 @@ public class Magic8BallController {
     // Http request method that should return a random Magic 8 Ball answer.
     @RequestMapping(value = "/magic", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.CREATED)
-    public Answer returnMagic8BallAnswer(@RequestBody Answer question){
-        int randomIndex = (int)(Math.random()*answerList.size());
+    public Answer returnMagic8BallAnswer(@RequestBody Answer question) {
+        int randomIndex = (int) (Math.random() * answerList.size());
 
         //Spring is doing Deserialization. Its mapping whatever is sent in to the object I declared on line 51.
         //It's associating the request body (input) with the answer object. Looks for a match with this new object.

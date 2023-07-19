@@ -1,10 +1,11 @@
 package com.company.summativeProject1.models;
+
 public class Answer {
     private int id;
     private String question;
     private String answer;
 
-    public Answer(String question, String answer, int id){
+    public Answer(String question, String answer, int id) {
         this.question = question;
         this.answer = answer;
         this.id = id;
